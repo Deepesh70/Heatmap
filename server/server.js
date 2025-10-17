@@ -19,7 +19,9 @@ mongoose.connect(MONGO_URI)
 
 // --- Import and Use Routes ---
 const submissionRoutes = require('./routes/submissionRoutes');
+const userRoutes = require('./routes/userRoutes');
 app.use('/api', submissionRoutes); // All routes will be prefixed with /api
+app.use('/api/users', userRoutes);
 
 // --- Start Server ---
 app.listen(PORT, () => {
