@@ -4,13 +4,14 @@ const cors = require('cors');
 
 const app = express();
 const PORT = 5001;
+require('dotenv').config();
 
 // --- Middleware ---
 app.use(cors());
 app.use(express.json());
 
 // --- MongoDB Connection ---
-const MONGO_URI = 'mongodb+srv://Deepesh:9981749817@ggstats.dhhpaye.mongodb.net/Heatmap?retryWrites=true&w=majority&appName=cluster0';
+const MONGO_URI = process.env.MONGO_URL;
 
 mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected successfully.'))
