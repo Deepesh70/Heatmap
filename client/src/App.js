@@ -15,14 +15,14 @@ function PrivateRoute({ children }) {
 
 function App() {
   return (
-    <Router>
+    <Router>        {/* Set up routing */}
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route
           path="/"
           element={
-            <PrivateRoute>
+            <PrivateRoute>        {/* Protect DashboardPage route */}
               <DashboardPage />
             </PrivateRoute>
           }
