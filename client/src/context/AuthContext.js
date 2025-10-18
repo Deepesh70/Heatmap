@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
   };
 
-  const authContextValue = { token, login, signup, logout, loading };
+  const authContextValue = { token, login, signup, logout, loading }; // Provide the context value
 
   return (
     <AuthContext.Provider value={authContextValue}>
