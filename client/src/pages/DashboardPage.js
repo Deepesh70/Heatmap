@@ -3,7 +3,7 @@ import axios from 'axios';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import { AuthContext } from '../context/AuthContext';
 
-function DashboardPage() {
+function DashboardPage() {      // DashboardPage component
   const { logout } = useContext(AuthContext);
   const [answers, setAnswers] = useState({});
   const [heatmapData, setHeatmapData] = useState([]);
@@ -16,6 +16,8 @@ function DashboardPage() {
     { id: 'q3', text: 'What is the chemical symbol for water?', options: ['O2', 'CO2', 'H2O', 'NaCl'] }
   ];
 
+
+  // Fetch heatmap data from backend
   const fetchHeatmapData = async () => {
     try {
       // The auth header is now automatically added by our AuthContext!
@@ -55,16 +57,16 @@ function DashboardPage() {
   oneYearAgo.setFullYear(today.getFullYear() - 1);
 
   return (
-    <div className="bg-slate-100 min-h-screen text-slate-800 p-4 sm:p-8">
+    <div className="bg-slate-900 min-h-screen text-white p-4 sm:p-8">
       <header className="max-w-4xl mx-auto flex justify-between items-center mb-12">
-        <h1 className="text-3xl font-bold text-slate-700">Your Dashboard</h1>
+        <h1 className="text-3xl font-bold text-white">Your Dashboard</h1>
         <button onClick={logout} className="bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition-colors">
           Logout
         </button>
       </header>
       <main className="max-w-4xl mx-auto flex flex-col gap-10">
         {/* Quiz Card */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-slate-700 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold border-b pb-2 mb-6">Daily Quiz 🧠</h2>
           <form onSubmit={handleSubmit}>
             {questions.map(q => (
@@ -87,7 +89,7 @@ function DashboardPage() {
           {message && <p className="mt-4 font-semibold text-green-600">{message}</p>}
         </div>
         {/* Heatmap Card */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="bg-slate-700 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold border-b pb-2 mb-6">Your Activity</h2>
           <CalendarHeatmap
             startDate={oneYearAgo}
